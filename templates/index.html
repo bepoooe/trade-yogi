@@ -1,0 +1,923 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta property="og:image" content="https://mugshotbot.com/m/pQ2LKb7G">
+  <meta property="twitter:card" content="summary_large_image">
+  
+  <!-- Favicon Logo -->
+  <link rel="shortcut icon" type="image/png" href="static/images/logo2.png" />
+
+  <!-- Other links and stylesheets -->
+   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.7.2/css/all.min.css">
+   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.7.2/css/fontawesome.min.css">
+  <link rel="stylesheet" href="{{ url_for('static', filename='css/style.css')}}">
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/glightbox/dist/css/glightbox.min.css" />
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
+  <script src="{{ url_for('static', filename='assets/js/cv-slider-vertical.js')}}"></script>
+  <link href="https://fonts.googleapis.com/css2?family=Montserrat:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&display=swap" rel="stylesheet">
+  
+  <title>Trade Yogi</title>
+</head>
+
+
+<body data-bs-spy="scroll" data-bs-target="#spy-section">
+  <!-- START THE NAVBAR SECTION -->
+
+  <nav class="navbar navbar-expand-lg bg-light sticky-top border-bottom border-primary p-lg-0 p-3 menu" id="spy-section">
+  <div class="container">
+    <a class="navbar-brand fw-bold text-primary pe-4" href="#">
+      <img src="{{ url_for('static', filename='images/logo.png') }}" alt="Trade Yogi Logo" class="navbar-logo">
+      Trade Yogi
+    </a>
+
+    <!-- COLOR SWITCHER ON MOBILE SCREEN ONLY -->
+    <div
+      class="theme-switcher switcher-sm d-flex align-items-center justify-content-center d-lg-none ms-auto me-3 me-md-4">
+      <button class="btn--theme-switcher btnsm me-2 light-dark-btn">
+        <i class="fas fa-moon light-dark-icon"></i>
+      </button>
+      <div class="dropdown theme-switcher__color-picker">
+        <button class="btn--theme-switcher btnsm dropdown-toggle color-toggle-btn" type="button"
+          data-bs-toggle="dropdown" aria-expanded="false">
+          <i class="fas fa-palette"></i>
+        </button>
+        <div class="dropdown-menu dropdown-menu-end shadow-lg">
+          <div class="color-box">
+            <button class="btn--color primary-theme"></button>
+            <button class="btn--color secondary-theme"></button>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <button class="navbar-toggler" type="button" data-bs-toggle="offcanvas" data-bs-target="#offcanvasNavbar"
+      aria-controls="offcanvasNavbar">
+      <span class="navbar-toggler-icon"></span>
+    </button>
+    <div class="offcanvas offcanvas-end" tabindex="-1" id="offcanvasNavbar" aria-labelledby="offcanvasNavbarLabel">
+      <div class="offcanvas-header">
+        <h5 class="offcanvas-title fw-bold text-primary" id="offcanvasNavbarLabel">Trade Yogi</h5>
+        <button type="button" class="btn-close" data-bs-dismiss="offcanvas" aria-label="Close"></button>
+      </div>
+      <div class="offcanvas-body">
+        <ul class="navbar-nav justify-content-start flex-grow-1">
+          <li class="nav-item my-auto">
+            <a class="nav-link" aria-current="page" href="#home">Home</a>
+          </li>
+          <li class="nav-item my-auto">
+            <a class="nav-link" aria-current="page" href="#process">Process</a>
+          </li>
+          <li class="nav-item my-auto">
+            <a class="nav-link" href="#testimonial">Reviews</a>
+          </li>
+          <li class="nav-item my-auto">
+            <a class="nav-link" href="#options">Services</a>
+          </li>
+          <li class="nav-item my-auto">
+            <a class="nav-link" href="#gallery">MarketBible</a>
+          </li>
+          <li class="nav-item my-auto">
+            <a class="nav-link shining-text" href="{{ url_for('future') }}">
+              Yogi Darshan <i class="fa-solid fa-wand-magic-sparkles"></i></i> 
+            </a>
+          </li>
+        </ul>
+        <ul class="navbar-nav justify-content-end flex-grow-1">
+          <li class="nav-item my-auto me-lg-4 me-0">
+            <a class="nav-link btn--show-modal" id="login-signup" href="#">Login / Sign Up</a>
+          </li>
+          <li class="nav-item my-auto me-lg-4 me-0">
+            <a class="nav-link btn--show-modal" id="logout" href="#">logout</a>
+          </li>
+          <div
+            class="theme-switcher me-lg-4 me-0 d-flex align-items-center justify-content-center order-2 order-lg-1 mt-4 mt-lg-0">
+            <button class="btn--theme-switcher me-2 light-dark-btn">
+              <i class="fas fa-moon light-dark-icon"></i>
+            </button>
+            <div class="dropdown theme-switcher__color-picker">
+              <button class="btn--theme-switcher dropdown-toggle color-toggle-btn" type="button"
+                data-bs-toggle="dropdown" aria-expanded="false">
+                <i class="fas fa-palette"></i>
+              </button>
+              <div class="dropdown-menu dropdown-menu-end shadow-lg">
+                <div class="color-box">
+                  <button class="btn--color primary-theme"></button>
+                  <button class="btn--color secondary-theme"></button>
+                </div>
+              </div>
+            </div>
+          </div>
+        </ul>
+      </div>
+    </div>
+  </div>
+</nav>
+
+
+  <!-- START THE HERO SECTION -->
+
+  <section class="hero section" id="home">
+    <div class="container">
+      <div class="row">
+        <div class="col-sm-12 col-lg-6 my-auto hero__intros pt-5 pt-xl-4">
+          <h1 class="display-2">Empower Investments.</h1>
+          <p class="display-2--description">A streamlined platform to predict, learn, and plan - all in one place</p>
+          <div class="hero__intros--ctas d-flex align-items-center">
+            <button class="btn-flat btn-sm btn--show-modal" id="get-estimate">Predict growth</button>
+            <div class="video-box">
+              <a href="#" class="glightbox">
+                <span>
+                  <i class="fas fa-play-circle"></i>
+                </span>
+                <span class="border-animation border-animation--border-1"></span>
+                <span class="border-animation border-animation--border-2"></span>
+              </a>
+            </div>
+          </div>
+        </div>
+        <div class="col-sm-12 col-lg-6 hero__feat-images mt-7">
+          <!-- Video inclusion -->
+          <video class="hero--video img-fluid" autoplay muted loop>
+            <source src="{{ url_for('static', filename='images/hero.mp4') }}" type="video/mp4">
+            Your browser does not support the video tag.
+          </video>
+        </div>
+      </div>
+    </div>
+  </section>
+  
+
+  <!-- START THE FEATURED IN SECTION -->
+
+  <section class="featured-in px-3 px-md-0 section" id="featured-in">
+    <div class="container">
+      <div class="row text-center py-5">
+        <div class="col-sm-6 col-lg-3 mb-xl-0 mb-5">
+          <div class="featured-in__company-logo-wrapper d-flex align-items-center justify-content-center">
+            <img src="{{ url_for('static', filename='images/featuted-in/Press01.png') }}" alt="houzz" class="">
+          </div>
+          <div class="featured-in__company-text">
+            <p class="mb-0">"Trade Yogi is setting new benchmarks in empowering traders with actionable insights."</p>
+          </div>
+        </div>
+        <div class="col-sm-6 col-lg-3 mb-xl-0 mb-5">
+          <div class="featured-in__company-logo-wrapper d-flex align-items-center justify-content-center">
+            <img src="{{ url_for('static', filename='images/featuted-in/Press02.png') }}" alt="fc" class="">
+          </div>
+          <div class="featured-in__company-text">
+            <p class="mb-0">"A perfect blend of foresight and technology – Trade Yogi is redefining market predictions."
+            </p>
+          </div>
+        </div>
+        <div class="col-sm-6 col-lg-3 mb-md-0 mb-5">
+          <div class="featured-in__company-logo-wrapper d-flex align-items-center justify-content-center">
+            <img src="{{ url_for('static', filename='images/featuted-in/Press03.png') }}" alt="new york times" class="">
+          </div>
+          <div class="featured-in__company-text">
+            <p class="mb-0">"An innovative platform like Trade Yogi elevates the trading experience for everyone."</p>
+          </div>
+        </div>
+        <div class="col-sm-6 col-lg-3 mb-xl-0 mb-lg-5">
+          <div class="featured-in__company-logo-wrapper d-flex align-items-center justify-content-center">
+            <img src="{{ url_for('static', filename='images/featuted-in/Press04.png') }}" alt="chinese" class="">
+          </div>
+          <div class="featured-in__company-text">
+            <p class="mb-0">“Collaborative platforms like Trade Yogi are shaping the next wave of Indian trading."
+            </p>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- START THE PROCESS SECTION -->
+
+  <section class="process section" id="process">
+    <div class="container">
+      <div class="row mb-5">
+        <div class="col-md-6">
+          <div class="process__headline-wrapper me-auto">
+            <h3 class="display-3--title text-white mb-5 mb-lg-1">A simple and streamlined process</h3>
+          </div>
+        </div>
+        <div class="col-md-6">
+          <div class="process__intro-wrapper ms-auto pe-3">
+            <p class="display-3--intro text-white lead pb-3">
+              Use our tools to predict, learn, and plan your hard-earned money to be grown by investing in rightful way.
+            </p>
+            <a href="#options" class="display-3--link text-white fw-bold">How does it work?</a>
+          </div>
+        </div>
+      </div>
+      <div class="row gx-sm-5">
+        <div class="col-xl-4 col-md-6 mb-5 mb-xl-0">
+          <div class="process__card">
+            <div class="process__card__imgwrap">
+              <img class="process_card_imgwrap--image img-fluid" src="{{ url_for('static', filename='images/process/Process 01.jpg') }}" alt="Process 01">
+              <span>01</span>
+            </div>
+            <div class="process__card__body">
+              <h5 class="process__card__body--title">Predict</h5>
+              <p class="process__card__body--text">Trade Yogi leverages advanced analytics and market trends to predict stock futures accurately. Gain valuable insights into price movements, assess risks, and make informed investment decisions to maximize your trading success.</p>
+            </div>
+          </div>
+        </div>
+        <div class="col-xl-4 col-md-6 mb-5 mb-xl-0">
+          <div class="process__card">
+            <div class="process__card__imgwrap">
+              <img class="process_card_imgwrap--image img-fluid" src="{{ url_for('static', filename='images/process/Process 02.jpg') }}" alt="Process 02">
+              <span>02</span>
+            </div>
+            <div class="process__card__body">
+              <h5 class="process__card__body--title">Learn</h5>
+              <p class="process__card__body--text">Learning trading basics is crucial to understanding market dynamics, minimizing risks, and making informed decisions. A strong foundation empowers traders to strategize effectively and achieve consistent success in the financial markets.
+              </p>
+            </div>
+          </div>
+        </div>
+        <div class="col-xl-4 col-md-6">
+          <div class="process__card">
+            <div class="process__card__imgwrap">
+              <img class="process_card_imgwrap--image img-fluid" src="{{ url_for('static', filename='images/process/Process 03.jpg') }}" alt="Process 03">
+              <span>03</span>
+            </div>
+            <div class="process__card__body">
+              <h5 class="process__card__body--title">Plan</h5>
+              <p class="process__card__body--text">Planning the right stock to invest in requires thorough research, market analysis, and understanding company performance. Smart planning ensures optimized returns, reduced risks, and alignment with your financial goals.</p>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- START THE TESTIMONIAL SECTION -->
+
+  <section class="testimonial section" id="testimonial">
+    <div class="container">
+      <div class="row">
+        <div class="col-md-6">
+          <img src="{{ url_for('static', filename='images/testimonial/testimonial-featured.jpg') }}" alt="testimonial featured"
+            class="img-fluid testimonial__featured mb-4 mb-md-0">
+        </div>
+        <div class="col-md-6 my-auto">
+          <div id="carouselExampleIndicators" class="carousel slide" data-bs-ride="true">
+            <div class="carousel-inner">
+              <div class="carousel-item active">
+                <div class="testimonial__card">
+                  <div class="ratings">
+                    <i class="bi bi-star-fill"></i>
+                    <i class="bi bi-star-fill"></i>
+                    <i class="bi bi-star-fill"></i>
+                    <i class="bi bi-star-fill"></i>
+                    <i class="bi bi-star"></i>
+                  </div>
+                  <p class="testimonial__card--text">
+                    With Trade Yogi, I’ve gained confidence in trading and achieved better returns. The encyclopaedia is a game-changer for mastering the basics!
+                  </p>
+                  <div class="testimonial__card--name">
+                    <p>— Aniket De</p>
+                  </div>
+                </div>
+              </div>
+              <div class="carousel-item">
+                <div class="testimonial__card">
+                  <div class="ratings">
+                    <i class="bi bi-star-fill"></i>
+                    <i class="bi bi-star-fill"></i>
+                    <i class="bi bi-star-fill"></i>
+                    <i class="bi bi bi-star-half"></i>
+                    <i class="bi bi-star"></i>
+                  </div>
+                  <p class="testimonial__card--text">
+                    Thanks to Trade Yogi, I now make informed decisions and feel more in control of my portfolio helping me invest wisely and grow confidently.
+                  </p>
+                  <div class="testimonial__card--name">
+                    <p>— Anik Paul</p>
+                  </div>
+                </div>
+              </div>
+              <div class="carousel-item">
+                <div class="testimonial__card">
+                  <div class="ratings">
+                    <i class="bi bi-star-fill"></i>
+                    <i class="bi bi-star-fill"></i>
+                    <i class="bi bi-star-fill"></i>
+                    <i class="bi bi-star-fill"></i>
+                    <i class="bi bi-star-fill"></i>
+                  </div>
+                  <p class="testimonial__card--text">
+                    The insights from Trade Yogi are incredibly reliable and have helped me minimize risks while maximizing profits. It’s a must-have for any investor!
+                  </p>
+                  <div class="testimonial__card--name">
+                    <p>— Adrish Basak</p>
+                  </div>
+                </div>
+              </div>
+            </div>
+            <button class="testimonial__btn bi bi-arrow-left" type="button" data-bs-target="#carouselExampleIndicators"
+              data-bs-slide="prev">
+            </button>
+            <button class="testimonial__btn bi bi-arrow-right" type="button" data-bs-target="#carouselExampleIndicators"
+              data-bs-slide="next">
+            </button>
+          </div>
+        </div>
+      </div>
+      <div class="row pt-5">
+        <div class="col-md-12 text-center">
+          <button class="btn-outline btn-outline--dark btn--show-modal" id="get-estimate">Get your estimate</button>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- START THE MIDDLE CTA SECTION -->
+
+  <section class="middle-cta section" id="middle-cta">
+    <div class="background-image-container">
+      <img src="{{ url_for('static', filename='images/middle-cta/Background.jpg') }}" alt="Background" class="background-image">
+    </div>
+    <div class="container">
+      <div class="row text-center">
+        <div class="col-m-12">
+          <div class="middle-cta__wrapper d-flex align-items-center justify-content-center mx-auto">
+            <h1 class="display-3">Consult with us @ 0% Processing Fee</h1>
+            <button class="btn-flat btn-sm btn--show-modal" id="login-signup">Explore financing</button>
+          </div>
+        </div>
+      </div>
+    </div>
+ </section>
+
+  <!-- START THE OPTIONS SECTION -->
+
+  <section class="options section" id="options">
+    <div class="container">
+      <div class="row mb-5 text-center">
+        <div class="col-md-12">
+          <h3 class="display-4">Our Services</h3>
+        </div>
+      </div>
+      <div class="options-card-wrapper mx-auto">
+        <div class="row g-5">
+          <div class="col-md-6" id="bathroom">
+            <div class="card options__card--1 m-xl-2">
+              <img src="{{ url_for('static', filename='images/options/Options 01.png') }}" class="card--image options__card--image" alt="Bathroom">
+              <div class="card-body options__card__body">
+                <h4 class="card-title options__card__body--title">Starter Sage</h4>
+                <p class="card-meta">₹149/-</p>
+                <p class="card-text options__card__body">Basic tutorials, weekly updates, beginner forum, and one personalized advice session monthly.
+                </p>
+                <button class="btn-flat btn-sm btn--show-modal" id="get-estimate">Learn more</button>
+              </div>
+            </div>
+          </div>
+          <div class="col-md-6" id="kitchen">
+            <div class="card options__card--2 m-xl-2">
+              <img src="{{ url_for('static', filename='images/options/Options 02.png') }}" class="card--image options__card--image" alt="Kitchen">
+              <div class="card-body options__card__body">
+                <h4 class="card-title options__card__body--title">Investor Insight</h4>
+                <p class="card-meta">₹349/-</p>
+                <p class="card-text options__card__body">Daily insights, bi-weekly Q&A, three personalized sessions, and mid-level strategies.</p>
+                <button class="btn-flat btn-sm btn--show-modal" id="get-estimate">Learn more</button>
+              </div>
+            </div>
+          </div>
+          <div class="col-md-6" id="backyard">
+            <div class="card options__card--3 m-xl-2">
+              <img src="{{ url_for('static', filename='images/options/Options 03.png') }}" class="card--image options__card--image" alt="Backyard">
+              <div class="card-body options__card__body">
+                <h4 class="card-title options__card__body--title">Profit Pro</h4>
+                <p class="card-meta">₹549/-</p>
+                <p class="card-text options__card__body">Advanced strategies, daily stock picks, webinars, unlimited collective advice, and five personal sessions.
+                </p>
+                <button class="btn-flat btn-sm btn--show-modal" id="get-estimate">Learn more</button>
+              </div>
+            </div>
+          </div>
+          <div class="col-md-6" id="basement">
+            <div class="card options__card--4 m-xl-2">
+              <img src="{{ url_for('static', filename='images/options/Options 04.png') }}" class="card--image options__card--image" alt="Basement">
+              <div class="card-body options__card__body">
+                <h4 class="card-title options__card__body--title">Yogi Elite</h4>
+                <p class="card-meta">₹849/-</p>
+                <p class="card-text options__card__body">Portfolio optimization, real-time alerts, one-on-one mentorship, and instant support via WhatsApp/email.</p>
+                <button class="btn-flat btn-sm btn--show-modal" id="get-estimate">Learn more</button>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+
+  <!-- START THE GALLERY SECTION -->
+
+  <section class="gallery section" id="gallery">
+    <div class="container">
+      <div class="row gallery__wrapper">
+        <div class="col-md-12 col-lg-6 order-2 order-lg-1">
+          <div class="gallery__wrapper__images">
+            <div class="row g-3 g-md-4 scroller js-scroll-area row-right">
+              <div class="col-6 col-md-6 js-scroll-slider" data-scroll-area=".js-scroll-area"
+                data-auto-speed-ratio="0.8" data-scroll-ratio="0.06">
+                <div class="gallery__wrapper__images__box js-scroll-slider__item">
+                  <img src="{{ url_for('static', filename='images/gallery/image-1.jpg')}}" alt="Gallery Image" class="">
+                  <div class="gallery-box-info">
+                    <div class="caption">
+                      <a href="images/gallery/image-1.jpg" class="glightbox1">
+                        <i class="fas fa-magnifying-glass"></i>
+                      </a>
+                    </div>
+                  </div>
+                </div>
+                <div class="gallery__wrapper__images__box js-scroll-slider__item">
+                  <img src="{{ url_for('static', filename='images/gallery/image-2.jpg')}}" alt="Gallery Image" class="">
+                  <div class="gallery-box-info">
+                    <div class="caption">
+                      <a href="images/gallery/image-2.jpg" class="glightbox1">
+                        <i class="fas fa-magnifying-glass"></i>
+                      </a>
+                    </div>
+                  </div>
+                </div>
+                <div class="gallery__wrapper__images__box js-scroll-slider__item">
+                  <img src="{{ url_for('static', filename='images/gallery/image-3.jpg')}}" alt="Gallery Image" class="">
+                  <div class="gallery-box-info">
+                    <div class="caption">
+                      <a href="images/gallery/image-3.jpg" class="glightbox1">
+                        <i class="fas fa-magnifying-glass"></i>
+                      </a>
+                    </div>
+                  </div>
+                </div>
+                <div class="gallery__wrapper__images__box js-scroll-slider__item">
+                  <img src="{{ url_for('static', filename='images/gallery/image-4.jpg')}}" alt="Gallery Image" class="">
+                  <div class="gallery-box-info">
+                    <div class="caption">
+                      <a href="images/gallery/image-4.jpg" class="glightbox1">
+                        <i class="fas fa-magnifying-glass"></i>
+                      </a>
+                    </div>
+                  </div>
+                </div>
+                <div class="gallery__wrapper__images__box js-scroll-slider__item">
+                  <img src="{{ url_for('static', filename='images/gallery/image-5.jpg')}}" alt="Gallery Image" class="">
+                  <div class="gallery-box-info">
+                    <div class="caption">
+                      <a href="images/gallery/image-5.jpg" class="glightbox1">
+                        <i class="fas fa-magnifying-glass"></i>
+                      </a>
+                    </div>
+                  </div>
+                </div>
+              </div>
+              <div class="col-6 col-md-6 js-scroll-slider is-reverse" data-scroll-area=".js-scroll-area"
+                data-auto-speed-ratio="0.5" data-scroll-ratio="0.06">
+                <div class="gallery__wrapper__images__box js-scroll-slider__item">
+                  <img src="{{ url_for('static', filename='images/gallery/image-6.jpg')}}" alt="Gallery Image" class="">
+                  <div class="gallery-box-info">
+                    <div class="caption">
+                      <a href="images/gallery/image-6.jpg" class="glightbox1">
+                        <i class="fas fa-magnifying-glass"></i>
+                      </a>
+                    </div>
+                  </div>
+                </div>
+                <div class="gallery__wrapper__images__box js-scroll-slider__item">
+                  <img src="{{ url_for('static', filename='images/gallery/image-7.jpg')}}" alt="Gallery Image" class="">
+                  <div class="gallery-box-info">
+                    <div class="caption">
+                      <a href="images/gallery/image-7.jpg" class="glightbox1">
+                        <i class="fas fa-magnifying-glass"></i>
+                      </a>
+                    </div>
+                  </div>
+                </div>
+                <div class="gallery__wrapper__images__box js-scroll-slider__item">
+                  <img src="{{ url_for('static', filename='images/gallery/image-8.jpg')}}" alt="Gallery Image" class="">
+                  <div class="gallery-box-info">
+                    <div class="caption">
+                      <a href="images/gallery/image-8.jpg" class="glightbox1">
+                        <i class="fas fa-magnifying-glass"></i>
+                      </a>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+        <div class="col-md-12 col-lg-6 order-1 order-lg-2">
+          <div class="gallery__wrapper--cta d-flex align-items-center justify-content-center mx-auto">
+            <h3 class="display-4 mb-4">
+            Introducing MarketBible
+            </h3>
+            <p class="mb-4 lead"> Find anything about Trading in MarketBible</p>
+            <a href="/chat" class="btn-outline btn-sm me-auto">Ask Questions</a>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- START THE BOTTOM CTA SECTION -->
+  <section class="py-5 bottom-cta" id="bottom-cta">
+    <div class="container py-5">
+      <div class="row g-3 g-xl-5">
+        <div class="col-md-12 col-lg-5 mb-5 mb-lg-0">
+          <h3 class="display-4 text-white">Let's grow your money together</h3>
+          <button class="btn-flat btn-flat-white btn-sm btn--show-modal" id="login-signup">Schedule a call</button>
+        </div>
+        <div class="col-md-12 col-lg-7 mt-auto">
+          <p class="bottom-cta__email display-3 text-white text-lg-end mb-0 mb-lg-5">tradeyogi2025@gmail.com</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- START THE FOOTER SECTION -->
+
+  <footer class="section footer py-5" id="footer">
+    <div class="container py-5">
+      <div class="row g-3 g-xl-5">
+        <div class="col-md-12 col-lg-3 d-flex align-items-start flex-column">
+          <p class="lead mb-lg-auto order-2 order-lg-1">We’re redefining what it means to trading.</p>
+          <a href="#" class="footer__logo order-1 order-lg-2 mb-5 mb-lg-0">Trade Yogi</a>
+        </div>
+        <div class="col-md-12 col-lg-9">
+          <div class="row">
+            <div class="col-md-12">
+              <div class="row g-3 g-xl-5">
+                <div class="col-md-12 col-lg-3 footer__col pb-1 pb-lg-0">
+                  <hr class="footer__col--headline">
+                  <p class="mt-4 mt-lg-0">Trade Yogi bridges the gap between knowledge and action, helping me invest wisely and grow confidently.</p>
+                  <p class="footer__col--copyright mb-auto">© Trade Yogi 2025</p>
+
+                </div>
+                <div class="col-md-12 col-lg-3 footer__col pb-1 pb-lg-0">
+                  <hr class="footer__col--headline">
+                  <ul class="footer__col--links mt-5 mt-lg-0">
+                    <li><a href="#bathroom">Starter Sage</a></li>
+                    <li><a href="#kitchen">Investor Insight</a></li>
+                    <li><a href="#backyard">Profit Pro</a></li>
+                    <li><a href="#basement">Yogi Elite</a></li>
+                    <li><a href="#process">How it works</a></li>
+                    <li><a href="#">FAQ</a></li>
+                    <li><a href="#">Guides</a></li>
+                  </ul>
+                </div>
+                <div class="col-md-12 col-lg-3 footer__col pb-1 pb-lg-0">
+                  <hr class="footer__col--headline">
+                  <ul class="footer__col--links mt-5 mt-lg-0">
+                    <li><a href="tel:+919038903850">+91 9038903850</a></li>
+                    <li><a href="tel:+919126426769">+91 9126426769</a></li>
+                    <li><a href="mailto:sammy@sammyleths.com">tradeyogi2025@gmail.com</a></li>
+                  </ul>
+                </div>
+                <div class="col-md-12 col-lg-3 footer__col d-flex flex-column">
+                  <hr class="footer__col--headline">
+                  <ul class="footer__col--links tos mt-3 mt-lg-0 mb-lg-auto mb-5">
+                    <li><a href="#">Terms of Use</a></li>
+                    <li><a href="#">Privacy Policy</a></li>
+                  </ul>
+                  <p class="footer__col--credit">Developed by <a class="fw-semibold" href="https://www.linkedin.com/in/anik-paul-2bb315265/" target="_blank">Anik </a> & <a class="fw-semibold" href="https://www.linkedin.com/in/aniket-de-505362287/" target="_blank">Aniket</a></p>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </footer>
+
+  <!-- START THE BACK TO TOP BUTTON -->
+
+  <a href="#" class="shadow back-to-top">
+    <i class="fas fa-chevron-up"></i>
+  </a>
+
+  <!-- START THE MODAL SECTION FOR LOGIN / SIGNUP -->
+
+  <div class="mb-modal mb-hidden login-signup" id="login-signup-id">
+    <button class="btn--close-modal" id="close-login-signup">&times;</button>
+    <h2 class="mb-modal__header text-center">
+      Login or Sign up to get started
+    </h2>
+    <div class="mb-modal__body">
+      <ul class="nav nav-tabs nav-fill" id="authTab" role="tablist">
+        <li class="nav-item" role="presentation">
+          <button class="nav-link active" id="login-tab" data-bs-toggle="tab" data-bs-target="#login-tab-pane"
+            type="button" role="tab" aria-controls="login-tab-pane" aria-selected="true">Log in</button>
+        </li>
+        <li class="nav-item" role="presentation">
+          <button class="nav-link" id="signup-tab" data-bs-toggle="tab" data-bs-target="#signup-tab-pane" type="button"
+            role="tab" aria-controls="signup-tab-pane" aria-selected="false">Sign up</button>
+        </li>
+      </ul>
+      <div class="tab-content" id="authTabContent">
+        <!-- Login Form -->
+        <div class="tab-pane fade show active" id="login-tab-pane" role="tabpanel" aria-labelledby="login-tab" tabindex="0">
+          <form id="loginForm">
+            <div class="form-floating mb-3">
+              <input type="email" class="form-control" id="loginEmail" name="email" placeholder="name@example.com" required>
+              <label for="loginEmail">Email address</label>
+            </div>
+            <div class="form-floating">
+              <input type="password" class="form-control" id="loginPassword" name="pass" placeholder="Password" required>
+              <label for="loginPassword">Password</label>
+            </div>
+            <div class="form-floating d-grid">
+              <button type="submit" class="btn-flat btn-sm mt-3">Log in</button>
+            </div>
+          </form>
+        </div>
+        <!-- Signup Form -->
+        <div class="tab-pane fade" id="signup-tab-pane" role="tabpanel" aria-labelledby="signup-tab" tabindex="0">
+          <form id="signupForm">
+            <div class="row g-2">
+              <div class="col-md mb-2">
+                <div class="form-floating">
+                  <input type="text" class="form-control" id="firstname" name="firstname" placeholder="Sammy" required>
+                  <label for="firstname">First name</label>
+                </div>
+              </div>
+              <div class="col-md mb-2">
+                <div class="form-floating">
+                  <input type="email" class="form-control" id="signupEmail" name="email" placeholder="name@example.com" required>
+                  <label for="signupEmail">Email address</label>
+                </div>
+              </div>
+              <div class="col-md-12 mb-2">
+                <div class="form-floating">
+                  <input type="password" class="form-control" id="signupPassword" name="pass" placeholder="Password" required>
+                  <label for="signupPassword">Password</label>
+                </div>
+              </div>
+              <div class="col-md-12 mb-2">
+                <div class="form-floating">
+                  <input type="password" class="form-control" id="confirmPassword" name="confirm_pass" placeholder="Confirm Password" required>
+                  <label for="confirmPassword">Confirm Password</label>
+                </div>
+              </div>
+              <div class="col-md-12">
+                <div class="form-floating d-grid">
+                  <button type="submit" class="btn-flat btn-sm">Sign up</button>
+                </div>
+              </div>
+            </div>
+          </form>
+        </div>
+      </div>
+    </div>
+</div>
+  </div>
+  
+
+  <!-- START THE MODAL SECTION FOR GET YOUR ESTIMATE -->
+
+  <div class="mb-modal mb-hidden get-estimate" id="get-estimate-id">
+    <button class="btn--close-modal" id="get-estimate">&times;</button>
+    <h2 class="mb-modal__header text-center">
+      Request a FREE estimate today!
+    </h2>
+    <div class="mb-modal__body">
+      <form id="contact-form" action="#">
+        <div class="row g-2">
+          <div class="col-md mb-2">
+            <div class="form-floating">
+              <input type="text" class="form-control" id="floatingInputFirstname3" name="first_name" placeholder="Sammy" value="">
+              <label for="floatingInputFirstname3">First name</label>
+            </div>
+          </div>
+          <div class="col-md mb-2">
+            <div class="form-floating">
+              <input type="email" class="form-control" id="floatingInputEmail3" name="email" placeholder="name@example.com" value="">
+              <label for="floatingInputEmail3">Email address</label>
+            </div>
+          </div>
+          <div class="col-md-12 mb-2">
+            <div class="form-floating">
+              <input type="password" class="form-control" id="floatingPassword3" name="password" placeholder="Password">
+              <label for="floatingPassword3">Password</label>
+            </div>
+          </div>
+          <div class="col-md-12 mb-2">
+            <div class="form-floating">
+              <select class="form-select" id="floatingSelectOption" name="option" aria-label="Floating label select example">
+                <option selected>Select option</option>
+                <option value="1">Starter Sage</option>
+                <option value="2">Investor Insight</option>
+                <option value="3">Profit Pro</option>
+                <option value="3">Yogi Elite</option>
+              </select>
+              <label for="floatingSelectOption">Interested option</label>
+            </div>
+          </div>
+          <div class="col-md-12 mb-2">
+            <div class="form-floating">
+              <textarea class="form-control" name="comment" placeholder="Leave a comment here" id="floatingTextareaMessage"></textarea>
+              <label for="floatingTextareaMessage">Additional comments</label>
+            </div>
+          </div>
+          <div class="col-md-12">
+            <div class="form-floating d-grid">
+              <button type="submit" class="btn-flat btn-sm">Send Us</button>
+            </div>
+          </div>          
+        </div>
+      </form>
+    </div>
+  </div>
+
+  <!-- Message Box -->
+  <div class="chat-tooltip" id="chatTooltip">
+    <span>Need help? Click here to chat!</span>
+    <button class="close-tooltip" id="closeTooltip">&times;</button>
+  </div>
+  
+   <!-- Floating Chat Button -->
+   <button class="chat-float-button" onclick="window.location.href='/chat'">
+    <i class="bi bi-chat-dots"></i>
+</button>
+
+<!-- Include Bootstrap Icons -->
+<link href="https://cdnjs.cloudflare.com/ajax/libs/bootstrap-icons/1.10.5/font/bootstrap-icons.min.css" rel="stylesheet">
+
+  <div class="overlay mb-hidden"></div>
+
+  <script src="{{ url_for('static', filename='assets/js/bootstrap.bundle.js')}}"></script>
+  <script src="https://cdn.jsdelivr.net/npm/masonry-layout@4.2.2/dist/masonry.pkgd.min.js"
+    integrity="sha384-GNFwBvfVxBkLMJpYMOABq3c+d3KnQxudP/mGPkzpZSTYykLBNsZEnG2D9G/X/+7D" crossorigin="anonymous"
+    async></script>
+  <script src="https://cdn.jsdelivr.net/gh/mcstudios/glightbox/dist/js/glightbox.min.js"></script>
+  <script src="{{ url_for('static', filename='assets/js/cv-slider-vertical.js')}}"></script>
+  <script src="{{ url_for('static', filename='assets/js/custom.js')}}"></script>
+
+  <!-- LIGHTBOX -->
+  <script type="text/javascript">
+    const lightboxGallery = GLightbox({
+      selector: '.glightbox1'
+    })
+
+    const lightbox = GLightbox({
+      'href': 'https://youtu.be/ErXHHgsIu6I',
+      'type': 'video',
+      'source': 'youtube',
+      'width': 900,
+      'autoPlayVideos': 'true',
+    });
+  </script>
+  <input type="hidden" id="showLoginModalFlag" value="{{ session.pop('show_login_modal', False) }}">
+  <script>
+    document.addEventListener('DOMContentLoaded', function () {
+  const showLoginModalFlag = document.getElementById('showLoginModalFlag').value;
+  const mainContent = document.querySelector('.main-content');
+  const modal = document.getElementById('login-signup-id');
+  const closeModal = document.getElementById('close-login-signup');
+  const loginSignupLink = document.getElementById('login-signup');
+
+  // Show modal if the flag is set
+  if (showLoginModalFlag === 'True') {
+    modal.classList.remove('mb-hidden');
+    mainContent.classList.add('blurred'); // Add blur effect
+  }
+
+  // Event listener for the navigation link
+  loginSignupLink.addEventListener('click', function (e) {
+    e.preventDefault();
+    modal.classList.remove('mb-hidden');
+    mainContent.classList.add('blurred'); // Add blur effect
+  });
+
+  // Close modal logic
+  closeModal.addEventListener('click', function () {
+    modal.classList.add('mb-hidden');
+    mainContent.classList.remove('blurred'); // Remove blur effect
+  });
+});
+  </script>
+  <script>
+    // Get tooltip and close button elements
+const chatTooltip = document.getElementById('chatTooltip');
+const closeTooltipBtn = document.getElementById('closeTooltip');
+
+// Add event listener for closing the tooltip
+closeTooltipBtn.addEventListener('click', () => {
+  chatTooltip.style.display = 'none'; // Hide the tooltip
+});
+
+  </script>
+  <script type="text/javascript" src="https://cdn.emailjs.com/dist/email.min.js"></script>
+
+</body>
+<script>
+
+  document.addEventListener('DOMContentLoaded', () => {
+    // GLightbox initialization
+    const lightboxGallery = GLightbox({ selector: '.glightbox1' });
+
+    const lightbox = GLightbox({
+      href: 'https://youtu.be/ErXHHgsIu6I',
+      type: 'video',
+      source: 'youtube',
+      width: 900,
+      autoPlayVideos: 'true',
+    });
+
+    // Modal Logic
+    const modal = document.getElementById('login-signup-id');
+    const closeModal = document.getElementById('close-login-signup');
+
+    closeModal.addEventListener('click', () => {
+      modal.classList.add('mb-hidden');
+    });
+
+    // Handle login form submission
+    document.getElementById('loginForm').addEventListener('submit', async (event) => {
+      event.preventDefault();
+      const formData = new FormData(event.target);
+      const formObject = Object.fromEntries(formData);  // Convert FormData to plain object
+
+      const response = await fetch('/login', {
+        method: 'POST',
+        headers: {
+          'Content-Type': 'application/json',
+        },
+        body: JSON.stringify(formObject),
+      });
+
+      const result = await response.json();
+      if (result.success) {
+        alert('Login successful');
+        modal.classList.add('mb-hidden');
+        location.reload();
+      } else {
+        alert(result.error);
+      }
+    });
+
+    // Handle signup form submission
+    document.getElementById('signupForm').addEventListener('submit', async (event) => {
+      event.preventDefault();
+      const formData = new FormData(event.target);
+      const formObject = Object.fromEntries(formData);  // Convert FormData to plain object
+
+      const response = await fetch('/signup', {
+        method: 'POST',
+        headers: {
+          'Content-Type': 'application/json',
+        },
+        body: JSON.stringify(formObject),
+      });
+
+      const result = await response.json();
+      if (result.success) {
+        alert('Signup successful. Please verify your email.');
+        modal.classList.add('mb-hidden');
+      } else {
+        alert(result.error);
+      }
+    });
+  });
+</script>
+<script>
+  document.getElementById('logout').addEventListener('click', async function(event) {
+    event.preventDefault();  // Prevent the default link behavior
+    const response = await fetch('/logout', { method: 'GET' });
+    
+    if (response.ok) {
+      window.location.href = '/';  // Redirect to home page or any page after logging out
+    } else {
+      alert('Logout failed');
+    }
+  });
+</script>
+<script>
+  // Initialize EmailJS
+  emailjs.init("7QprZsLkMddzME7zk");
+
+  // Attach the form submit event
+  document.getElementById('contact-form').addEventListener('submit', function(event) {
+    event.preventDefault(); // Prevent the default form submission
+
+    // Get the form element
+    const form = event.target;
+
+    // Send email using EmailJS
+    emailjs.sendForm('service_oim33ep', 'template_r4dssxq', form)
+      .then(function(response) {
+        alert('Your message has been sent successfully!');
+      }, function(error) {
+        alert('Failed to send message. Please try again later.');
+      });
+  });
+</script>
+
+</html>

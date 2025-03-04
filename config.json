@@ -1,0 +1,10 @@
+{
+    "params":
+    {
+        "local_uri"  : "mysql://root:@localhost/Trading Prediction", 
+        "prdo_uri" : "mysql://root:@localhost/Trading Prediction",
+        "admin_user": "project_trade",
+        "admin_pass" : "123456"
+
+    }
+}

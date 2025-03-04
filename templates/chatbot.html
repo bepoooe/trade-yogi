@@ -1,0 +1,386 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Chat Interface</title>
+    <link href="https://fonts.googleapis.com/css2?family=Montserrat:ital,wght@0,0,100;0,0,200;0,0,300;0,0,400;0,0,500;0,0,600;0,0,700;0,0,800;0,0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&display=swap" rel="stylesheet">
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css" rel="stylesheet">
+    <style>
+        body {
+            margin: 0;
+            font-family: 'Montserrat', sans-serif;
+            
+            color: #333;
+            overflow-x: hidden;
+        }
+        .container {
+            display: flex;
+            min-height: 100vh;
+            width: 100vw;
+            flex-wrap: wrap;
+        }
+        .left-side {
+            flex: 1;
+            padding: 60px;
+            background-color: #165A4A;
+            box-sizing: border-box;
+        }
+        .left-side h1 {
+            margin-bottom: 30px;
+            font-size: 58px;
+            font-weight: 900;
+            color: #E6FFE6;
+        }
+        .left-side p {
+            font-size: 20px;
+            line-height: 1.6;
+            color: #E6FFE6;
+            font-weight: bolder;
+        }
+        .right-side {
+            flex: 1;
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 20px;
+            padding: 60px;
+            padding-bottom: 140px;
+            box-sizing: border-box;
+            position: relative;
+        }
+        .card {
+            position: relative;
+            background-color: #fff;
+            padding: 20px;
+            box-shadow: 0 8px 16px rgba(0, 0, 0, 0.1);
+            border-radius: 20px;
+            font-size: 22px;
+            display: flex;
+            flex-direction: column;
+            justify-content: flex-start;
+            min-height: 180px;
+            cursor: pointer;
+            transition: transform 0.2s;
+        }
+        .card:hover {
+            transform: translateY(-5px);
+        }
+        /* Pastel colors for cards */
+        .card:nth-child(1) {
+            background-color: #e8e9ff;
+        }
+        .card:nth-child(2) {
+            background-color: #e6ffe6;
+        }
+        .card:nth-child(3) {
+            background-color: #E6FFE6;
+        }
+        .card:nth-child(4) {
+            background-color: #e8e9ff;
+        }
+        .card p {
+            margin: 0;
+            flex-grow: 1;
+            text-align: left;
+        }
+        .card img {
+            position: absolute;
+            bottom: 15px;
+            left: 15px;
+            width: 35px;
+            height: 35px;
+        }
+        .chat-input {
+            position: fixed;
+            bottom: 30px;
+            left: 50%;
+            transform: translateX(-50%);
+            display: flex;
+            align-items: center;
+            background-color: #E6FFE6;
+            padding: 20px 30px;
+            box-shadow: 0 8px 16px rgba(0, 0, 0, 0.5);
+            border-radius: 50px;
+            width: 60%;
+            box-sizing: border-box;
+        }
+        .chat-input img {
+            width: 35px;
+            height: 35px;
+            margin-right: 20px;
+        }
+        .chat-input input {
+            border: black 2px solid;
+            outline: black 1px solid;
+            flex: 1;
+            font-size: 20px;
+            border-radius: 50px;
+            padding: 10px;
+        }
+        .chat-output {
+            position: relative;
+            width: 100%;
+            padding: 0 60px;
+            box-sizing: border-box;
+            grid-column: 1 / -1;
+        }
+        .chat-message {
+            max-width: 60%;
+            margin: 10px 0;
+            padding: 20px;
+            background-color: #e8e8e8;
+            border-radius: 20px;
+            font-size: 20px;
+            line-height: 1.5;
+            word-wrap: break-word;
+            white-space: pre-wrap;
+        }
+        /* Styles for example questions */
+        .example-questions {
+            margin-top: 20px;
+        }
+        .example-question {
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            padding: 5px 0;
+            font-size: 16px; /* Reduced font size */
+            color: #007BFF;
+            cursor: pointer;
+            border: none;
+            background: none;
+            border-bottom: 1px solid #ccc;
+            width: 100%;
+        }
+        .example-question:hover {
+            text-decoration: underline;
+        }
+        .example-question img {
+            margin-left: 10px;
+            width: 16px;
+            height: 16px;
+        }
+        /* Disable input and cards when interaction is done */
+        .disabled {
+            pointer-events: none;
+            opacity: 0.6;
+        }
+
+        .send-btn {
+    background-color: #165A4A; 
+    color: white; 
+    border: none; 
+    padding: 15px 16px; 
+    border-radius: 50px; 
+    font-size: 14px; 
+    cursor: pointer; 
+    transition: background-color 0.3s ease;
+    margin-left: 5px;
+  }
+  .send-btn:hover {
+    background-color: #218838; /* Darker green on hover */
+  }
+  .submit-btn {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  padding: 10px 20px;
+  font-size: 16px;
+  font-weight: bold;
+  color: #165A4A;
+  background: linear-gradient(90deg, #4bddbb, #E6FFE6); /* Gradient */
+  border: none;
+  border-radius: 30px;
+  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1); /* Subtle shadow */
+  cursor: pointer;
+  transition: all 1.5s ease; /* Smooth animations */
+}
+
+.submit-btn i {
+  margin-right: 8px; /* Spacing for the icon */
+  font-size: 18px;
+}
+
+.submit-btn:hover {
+  background: linear-gradient(90deg, #E6FFE6, #4bddbb); /* Reversed gradient */ /* Lift effect */
+  box-shadow: 0 8px 12px rgba(0, 0, 0, 0.2); /* Stronger shadow */
+  transition: all 1.5s ease;
+}
+
+.submit-btn:active {
+  transform: translateY(0); /* Reset lift on click */
+  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1); /* Reset shadow */
+}
+.send-btn.stop-btn {
+        background-color: #ff4d4d; /* Red for the "Stop" button */
+    }
+    .stop-btn i {
+        font-size: 14px;
+    }
+    </style>
+</head>
+<body>
+    
+    <div class="container">
+        <div class="left-side">
+            <h1>MarketBible</h1>
+            <p>Ask your heart out about any trading-related doubts!</p>
+            <button type="button" class="submit-btn" onclick="window.history.back();">
+                <i class="fas fa-arrow-left"></i>   Back
+            </button>
+        </div>
+        <div class="right-side">
+            <div class="card">
+                <p>What is the best way to start learning about trading and the stock market?</p>
+                <i class="fas fa-paper-plane card-icon"></i>
+            </div>
+            <div class="card">
+                <p>How do I determine which stocks or assets are good to invest in as a beginner?</p>
+                <i class="fas fa-paper-plane card-icon"></i>
+            </div>
+            <div class="card">
+                <p>What are the risks involved in trading, and how can I minimize losses?</p>
+                <i class="fas fa-paper-plane card-icon"></i>
+            </div>
+            <div class="card">
+                <p>How do I set realistic goals and develop a trading strategy that works for me?</p>
+                <i class="fas fa-paper-plane card-icon"></i>
+            </div>
+            <!-- Chat output will be inserted here -->
+            <div class="chat-output" id="chat-output"></div>
+        </div>
+    </div>
+
+    <div class="chat-input" id="chat-input">
+        <input type="text" id="user-input" placeholder="Ask me something..." autocomplete="off">
+        <button id="send-button" class="send-btn">
+            <i class="fas fa-paper-plane"></i>
+        </button>
+    </div>
+    </div>
+
+    <script>
+        const chatOutput = document.getElementById('chat-output');
+        const userInput = document.getElementById('user-input');
+        const sendButton = document.getElementById('send-button');
+        const cards = document.querySelectorAll('.card');
+        let interactionDone = false;
+        let textInterval = null;
+    
+        function streamText(text, callback) {
+            const words = text.split(/(\s+)/); // Split by spaces
+            let index = 0;
+            const message = document.createElement('div');
+            message.className = 'chat-message';
+            chatOutput.appendChild(message);
+    
+            textInterval = setInterval(() => {
+                if (index < words.length) {
+                    message.textContent += words[index];
+                    index++;
+                    window.scrollTo(0, document.body.scrollHeight); // Scroll down as text is added
+                } else {
+                    clearInterval(textInterval);
+                    textInterval = null;
+                    interactionDone = false;
+                    toggleSendButton(false); // Reset button to "Send"
+                    if (callback) callback();
+                }
+            }, 30); // Adjust this delay for typing effect speed
+        }
+    
+        function fetchChatResponse(userQuestion) {
+            fetch('/chat', {
+                method: 'POST',
+                headers: {
+                    'Content-Type': 'application/json',
+                },
+                body: JSON.stringify({ user_input: userQuestion }),
+            })
+                .then((response) => response.json())
+                .then((data) => {
+                    const botResponse = data.response;
+                    streamText(botResponse);
+                })
+                .catch((error) => {
+                    console.error('Error:', error);
+                    streamText("Sorry, I couldn't process your request.");
+                    interactionDone = false;
+                    toggleSendButton(false);
+                });
+        }
+    
+        function toggleSendButton(isGenerating) {
+            if (isGenerating) {
+                sendButton.classList.add('stop-btn');
+                sendButton.innerHTML = '<i class="fas fa-stop"></i>';
+            } else {
+                sendButton.classList.remove('stop-btn');
+                sendButton.innerHTML = '<i class="fas fa-paper-plane"></i>';
+            }
+        }
+    
+        function stopTextGeneration() {
+            if (textInterval) {
+                clearInterval(textInterval);
+                textInterval = null;
+                interactionDone = false;
+                toggleSendButton(false); // Reset button to "Send"
+            }
+        }
+    
+        userInput.addEventListener('keypress', function (event) {
+            if (event.key === 'Enter' && !interactionDone) {
+                const question = userInput.value.trim();
+                if (question !== '') {
+                    const userMessage = document.createElement('div');
+                    userMessage.className = 'chat-message';
+                    userMessage.style.backgroundColor = '#d1e7dd';
+                    userMessage.textContent = question;
+                    chatOutput.appendChild(userMessage);
+                    userInput.value = '';
+                    interactionDone = true;
+                    toggleSendButton(true); // Change to "Stop" button
+                    fetchChatResponse(question);
+                }
+            }
+        });
+    
+        cards.forEach((card) => {
+            card.addEventListener('click', function () {
+                if (!interactionDone) {
+                    const question = this.querySelector('p').textContent;
+                    const userMessage = document.createElement('div');
+                    userMessage.className = 'chat-message';
+                    userMessage.style.backgroundColor = '#d1e7dd';
+                    userMessage.textContent = question;
+                    chatOutput.appendChild(userMessage);
+                    interactionDone = true;
+                    toggleSendButton(true); // Change to "Stop" button
+                    fetchChatResponse(question);
+                }
+            });
+        });
+    
+        sendButton.addEventListener('click', function () {
+            if (textInterval) {
+                stopTextGeneration(); // Stop streaming if button is "Stop"
+            } else if (!interactionDone) {
+                const question = userInput.value.trim();
+                if (question !== '') {
+                    const userMessage = document.createElement('div');
+                    userMessage.className = 'chat-message';
+                    userMessage.style.backgroundColor = '#d1e7dd';
+                    userMessage.textContent = question;
+                    chatOutput.appendChild(userMessage);
+                    userInput.value = '';
+                    interactionDone = true;
+                    toggleSendButton(true); // Change to "Stop" button
+                    fetchChatResponse(question);
+                }
+            }
+        });
+    </script>
+    
+
+</body>
+</html>

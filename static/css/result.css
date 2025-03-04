@@ -1,0 +1,258 @@
+/* Global Styling */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    transition: all 0.3s ease-in-out;
+}
+
+/* Body */
+body {
+    background: linear-gradient(135deg, #004d40, #26a69a); /* Darker greenish gradient */
+    color: #ffffff;
+    line-height: 1.6;
+    padding: 40px;
+    animation: fadeIn 1.5s ease-in-out;
+}
+
+h1 {
+    text-align: center;
+    font-size: 3rem;
+    font-weight: 700;
+    color: #e0f2f1;
+    margin-bottom: 40px;
+    animation: slideIn 1s ease-in-out;
+}
+
+/* Investment Summary Section */
+.result-container {
+    display: flex;
+    flex-direction: column;
+    gap: 30px;
+    max-width: 900px;
+    margin: 0 auto;
+    animation: fadeInUp 1s ease-out;
+}
+
+.result-box {
+    background-color: #e8f5e9; /* Lighter green for contrast */
+    border-radius: 15px;
+    padding: 30px;
+    box-shadow: 0 10px 20px rgba(0, 0, 0, 0.1);
+    color: #004d40; /* Text contrast for lighter background */
+    transition: transform 0.3s ease-in-out, box-shadow 0.3s ease;
+    animation: bounceIn 0.8s ease-out;
+}
+
+.result-box:hover {
+    transform: translateY(-10px);
+    box-shadow: 0 15px 30px rgba(0, 0, 0, 0.2);
+}
+
+h2 {
+    font-size: 2rem;
+    color: #004d40;
+    border-bottom: 2px solid #26a69a;
+    padding-bottom: 10px;
+    margin-bottom: 20px;
+    animation: slideInLeft 0.7s ease-in-out;
+}
+
+p {
+    font-size: 1.2rem;
+    margin: 10px 0;
+    opacity: 0;
+    animation: fadeInText 1s forwards;
+}
+
+p.profit {
+    color: #1b5e20; /* Dark green for profit */
+    font-weight: bold;
+}
+
+p.loss {
+    color: #d32f2f; /* Red for loss */
+    font-weight: bold;
+}
+
+/* Button Styling */
+button {
+    background-color: #26a69a;
+    color: white;
+    padding: 12px 30px;
+    border: none;
+    border-radius: 50px;
+    font-size: 1.1rem;
+    cursor: pointer;
+    transition: background-color 0.3s ease, transform 0.3s ease;
+    margin-top: 20px;
+    opacity: 0;
+    animation: fadeInButton 1.2s 0.5s forwards;
+}
+
+button:hover {
+    background-color: #004d40;
+    transform: scale(1.05);
+}
+
+/* Link Styling */
+a {
+    color: #26a69a;
+    text-decoration: none;
+    font-weight: bold;
+    transition: color 0.3s;
+}
+
+a:hover {
+    color: #004d40;
+}
+
+/* Responsive Design */
+@media (max-width: 768px) {
+    body {
+        padding: 20px;
+    }
+
+    h1 {
+        font-size: 2.5rem;
+    }
+
+    h2 {
+        font-size: 1.6rem;
+    }
+
+    p {
+        font-size: 1rem;
+    }
+
+    .result-container {
+        padding: 10px;
+    }
+
+    .result-box {
+        padding: 20px;
+    }
+}
+
+/* Animations */
+@keyframes fadeIn {
+    0% {
+        opacity: 0;
+    }
+    100% {
+        opacity: 1;
+    }
+}
+
+@keyframes slideIn {
+    0% {
+        transform: translateY(-20px);
+        opacity: 0;
+    }
+    100% {
+        transform: translateY(0);
+        opacity: 1;
+    }
+}
+
+@keyframes slideInLeft {
+    0% {
+        transform: translateX(-20px);
+        opacity: 0;
+    }
+    100% {
+        transform: translateX(0);
+        opacity: 1;
+    }
+}
+
+@keyframes fadeInUp {
+    0% {
+        opacity: 0;
+        transform: translateY(20px);
+    }
+    100% {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+@keyframes fadeInText {
+    0% {
+        opacity: 0;
+    }
+    100% {
+        opacity: 1;
+    }
+}
+
+@keyframes fadeInButton {
+    0% {
+        opacity: 0;
+    }
+    100% {
+        opacity: 1;
+    }
+}
+
+@keyframes bounceIn {
+    0% {
+        transform: scale(0.8);
+        opacity: 0;
+    }
+    60% {
+        transform: scale(1.1);
+    }
+    100% {
+        transform: scale(1);
+        opacity: 1;
+    }
+}
+
+/* Chart Container Styling */
+.charts-container {
+    display: flex;  /* Flexbox to display charts side by side */
+    justify-content: space-between; /* Space between the charts */
+    gap: 20px;
+    flex-wrap: wrap; /* Allow charts to wrap on smaller screens */
+}
+
+.chart-container {
+    background-color: #ffffff;  /* White background for the chart */
+    border-radius: 10px;
+    padding: 20px;
+    box-shadow: 0 10px 20px rgba(0, 0, 0, 0.1);
+    width: 48%;  /* Each chart container takes up almost half the width */
+    max-width: 600px;  /* Maximum width for each chart */
+    margin: 0 auto;
+    text-align: center;
+}
+
+.chart-container h2 {
+    color: #004d40; /* Dark green */
+    margin-bottom: 20px;
+}
+
+#investmentChart, #investmentLineChart {
+    width: 100%;
+    height: 300px;  /* Fixed height for the chart */
+    max-height: 400px;  /* Maximum height */
+    margin: 0 auto;  /* Center the chart */
+}
+
+/* Make chart responsive */
+@media (max-width: 768px) {
+    .charts-container {
+        flex-direction: column;  /* Stack charts vertically on small screens */
+        gap: 20px;
+    }
+
+    .chart-container {
+        width: 100%;  /* Full width for each chart container on smaller screens */
+    }
+
+    #investmentChart, #investmentLineChart {
+        height: 250px;  /* Adjust chart height for smaller screens */
+    }
+} 

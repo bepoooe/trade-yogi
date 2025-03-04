@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Contact Us</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='css/contact.css') }}" />
+</head>
+<body>
+    <!-- Header Section -->
+    <header class="main-header">
+        <div class="logo">
+            <h1>Your Company</h1>
+        </div>
+        <nav>
+            <ul>
+                <li><a href="/index">Home</a></li>
+                <li><a href="/future">Predict Future</a></span></li>
+                <li><a href="#">About</a></li>
+                <li><a href="#">Services</a></li>
+            </ul>
+        </nav>
+    </header>
+
+    <!-- Contact Section -->
+    <div class="contact-section">
+        <div class="contact-container">
+            <h1>GET IN TOUCH</h1>
+            <form action="#" method="post">
+                <div class="row">
+                    <div class="input-group">
+                        <label for="name">Tell us your name </label>
+                        <input type="text" id="name" name="name" placeholder="John Smith" required>
+                    </div>
+                    <div class="input-group">
+                        <label for="email">Enter your email </label>
+                        <input type="email" id="email" name="email" placeholder="johnsmith@colorlib.com" required>
+                    </div>
+                </div>
+                
+                <div class="input-group">
+                    <label for="message">Your Message </label>
+                    <textarea id="message" name="message" placeholder="How can we help you?" required></textarea>
+                </div>
+                <button type="submit" class="submit-btn">SUBMIT</button>
+            </form>
+        </div>
+    </div>
+
+    <!-- Footer Section -->
+    <footer class="main-footer">
+        <div class="footer-content">
+            <p>&copy; 2024 Your Company. All Rights Reserved.</p>
+            <p>Call us on +001 345 6178</p>
+        </div>
+    </footer>
+</body>
+</html>

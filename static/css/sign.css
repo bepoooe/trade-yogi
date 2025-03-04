@@ -1,0 +1,296 @@
+/* Global Styling */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+}
+
+/* Body */
+body {
+    
+    background-size: cover;
+    transition: background-color 0.3s ease;
+    opacity: 85%;
+}
+
+body.dark {
+    background-color: #2c2c2c; /* Dark background for dark mode */
+    color: #e0e0e0; /* Light text */
+    opacity: 85%;
+}
+
+body.light {
+    background-color: #fff8e1; /* Light cream background for light mode */
+    color: #6a4e23; /* Brown text */
+}
+
+.para {
+    color: #6a4e23;  /* Purple color */
+    font-family: 'Arial', sans-serif;  /* Example font */
+    font-size: 1.2rem;  /* Adjust the font size */
+    font-weight: 500;  /* Optional: Adjust the font weight */
+}
+
+/* Header */
+header {
+    background-color: #6a4e23; /* Brown */
+    padding: 15px 20px;
+    color: white;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+header .brand {
+    font-size: 1.5rem;
+    font-weight: bold;
+}
+
+header .nav-links a {
+    color: white;
+    text-decoration: none;
+    margin-left: 20px;
+    font-size: 1.1rem;
+    transition: color 0.3s ease;
+}
+
+header .nav-links a:hover {
+    color: #ffd700; /* Gold on hover */
+}
+
+/* Container */
+.container {
+    height: 630px;
+    width: 400px;
+    margin: auto;
+    border-radius: 4%;
+    text-align: center;
+    transition: background-color 0.3s ease, opacity 0.3s ease;
+}
+
+.container.dark {
+    background-color: #3e3e3e; /* Darker background for dark theme */
+    color: white;
+}
+
+.container.light {
+    background-color: #ffffff; /* White background for light theme */
+}
+
+/* Login Container */
+
+.login-container {
+    background-color: #ffffff; /* White background */
+    border-radius: 15px;
+    padding: 40px;
+    width: 100%;
+    max-width: 400px;
+    box-shadow: 0 10px 20px rgba(0, 0, 0, 0.1);
+    margin: auto;
+    margin-top: 100px;
+}
+
+.login-container.dark {
+    background-color: #333333; /* Darker background for dark mode */
+    color: white;
+}
+
+/* Heading */
+h1 {
+    text-align: center;
+    font-size: 2.5rem;
+    font-weight: 700;
+    color: #000000; /* Gold */
+    margin-bottom: 30px;
+}
+
+/* Form Styling */
+.login-form {
+    display: flex;
+    flex-direction: column;
+    gap: 20px;
+}
+
+.form-group {
+    display: flex;
+    flex-direction: column;
+}
+
+label {
+    font-size: 1.1rem;
+    color: #6a4e23; /* Brown */
+    margin-bottom: 5px;
+}
+
+input {
+    padding: 10px;
+    border: 2px solid #ffd700; /* Gold border */
+    border-radius: 8px;
+    font-size: 1rem;
+    outline: none;
+    margin-bottom: 15px;
+    transition: border-color 0.3s ease;
+}
+
+input:focus {
+    border-color: #6a4e23; /* Brown focus border */
+}
+
+/* Button */
+.submit-btn {
+    background-color: #ffd700; /* Gold button */
+    color: white;
+    padding: 12px 25px;
+    border: none;
+    border-radius: 50px;
+    font-size: 1.1rem;
+    cursor: pointer;
+    transition: background-color 0.3s ease, transform 0.3s ease;
+    margin-top: 20px;
+    text-align: center;
+}
+
+.submit-btn:hover {
+    background-color: #6a4e23; /* Brown on hover */
+    transform: scale(1.05);
+}
+
+/* Footer */
+footer {
+    background-color: #6a4e23; /* Brown footer */
+    color: white;
+    text-align: center;
+    padding: 10px 0;
+    font-size: 0.9rem;
+    margin-top: auto;
+}
+
+/* Theme switch styles */
+.theme-switch {
+    position: absolute;
+    top: 20px;
+    right: 20px;
+    display: flex;
+    align-items: center;
+}
+
+.theme-switch input {
+    display: none;
+}
+
+.slider {
+    cursor: pointer;
+    height: 24px;
+    width: 48px;
+    background-color: #ccc;
+    border-radius: 50px;
+    position: relative;
+    transition: background-color 0.3s;
+}
+
+.slider:before {
+    position: absolute;
+    content: "";
+    height: 20px;
+    width: 20px;
+    left: 4px;
+    bottom: 2px;
+    background-color: white;
+    border-radius: 50%;
+    transition: transform 0.3s;
+}
+
+input:checked + .slider {
+    background-color: #ffd700; /* Gold when checked */
+}
+
+input:checked + .slider:before {
+    transform: translateX(24px);
+}
+
+/* Custom Input Fields and Button */
+.input1, .input2 {
+    font-size: 18px;
+    text-align: center;
+    height: 50px;
+    width: 70%;
+    border-radius: 100px;
+    border: 3px solid #ffd700; /* Gold border */
+    cursor: pointer;
+    color: #6a4e23; /* Brown text */
+}
+
+.button {
+    height: 40px;
+    width: 40%;
+    border-radius: 100px;
+    font-size: large;
+    background-color: #6a4e23; /* Brown button */
+    color: wheat;
+    cursor: pointer;
+}
+
+/* Other Styles */
+.para2 {
+    text-align: right;
+    margin-right: 30px;
+    color: #121212;
+}
+
+.blue {
+    color: #ffd700; /* Gold */
+}
+
+span {
+    color: #8e24aa; /* Purple */
+}
+
+.cross {
+    text-align: right;
+    margin-right: 10px;
+}
+
+img {
+    height: 25px;
+    width: 25px;
+    margin-bottom: 2px;
+}
+
+/* Responsive Design */
+@media (max-width: 768px) {
+    .login-container {
+        padding: 25px;
+        max-width: 90%;
+    }
+
+    h1 {
+        font-size: 2rem;
+    }
+
+    .form-group input {
+        font-size: 0.9rem;
+    }
+}
+.error {
+    color: red;
+    margin: 10px 0;
+    text-align: center;
+}
+
+.message {
+    color: green;
+    margin: 10px 0;
+    text-align: center;
+}
+
+.blue {
+    color: #007bff;
+    text-decoration: none;
+    margin: 5px 0;
+    display: inline-block;
+}
+
+.blue:hover {
+    text-decoration: underline;
+}

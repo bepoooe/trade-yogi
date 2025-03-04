@@ -1,0 +1,279 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Stock Investment Results</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
+
+    <style>
+        /* Global Styling */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    transition: all 0.3s ease-in-out;
+}
+
+/* Body */
+body {
+    background: linear-gradient(135deg, #004d40, #26a69a); /* Darker greenish gradient */
+    color: #ffffff;
+    line-height: 1.6;
+    padding: 40px;
+    animation: fadeIn 1.5s ease-in-out;
+}
+
+h1 {
+    text-align: center;
+    font-size: 3rem;
+    font-weight: 700;
+    color: #e0f2f1;
+    margin-bottom: 40px;
+    animation: slideIn 1s ease-in-out;
+}
+
+/* Investment Summary Section */
+.result-container {
+    display: flex;
+    flex-direction: column;
+    gap: 30px;
+    max-width: 900px;
+    margin: 0 auto;
+    animation: fadeInUp 1s ease-out;
+}
+
+.result-box {
+    background-color: #e8f5e9; /* Lighter green for contrast */
+    border-radius: 15px;
+    padding: 30px;
+    box-shadow: 0 10px 20px rgba(0, 0, 0, 0.1);
+    color: #004d40; /* Text contrast for lighter background */
+    transition: transform 0.3s ease-in-out, box-shadow 0.3s ease;
+    animation: bounceIn 0.8s ease-out;
+}
+
+.result-box:hover {
+    transform: translateY(-10px);
+    box-shadow: 0 15px 30px rgba(0, 0, 0, 0.2);
+}
+
+h2 {
+    font-size: 2rem;
+    color: #004d40;
+    border-bottom: 2px solid #26a69a;
+    padding-bottom: 10px;
+    margin-bottom: 20px;
+    animation: slideInLeft 0.7s ease-in-out;
+}
+
+p {
+    font-size: 1.2rem;
+    margin: 10px 0;
+    opacity: 0;
+    animation: fadeInText 1s forwards;
+}
+
+p.profit {
+    color: #1b5e20; /* Dark green for profit */
+    font-weight: bold;
+}
+
+p.loss {
+    color: #d32f2f; /* Red for loss */
+    font-weight: bold;
+}
+
+/* Button Styling */
+button {
+    background-color: #26a69a;
+    color: white;
+    padding: 12px 30px;
+    border: none;
+    border-radius: 50px;
+    font-size: 1.1rem;
+    cursor: pointer;
+    transition: background-color 0.3s ease, transform 0.3s ease;
+    margin-top: 20px;
+    opacity: 0;
+    animation: fadeInButton 1.2s 0.5s forwards;
+}
+
+button:hover {
+    background-color: #004d40;
+    transform: scale(1.05);
+}
+
+/* Link Styling */
+a {
+    color: #26a69a;
+    text-decoration: none;
+    font-weight: bold;
+    transition: color 0.3s;
+}
+
+a:hover {
+    color: #004d40;
+}
+
+/* Responsive Design */
+@media (max-width: 768px) {
+    body {
+        padding: 20px;
+    }
+
+    h1 {
+        font-size: 2.5rem;
+    }
+
+    h2 {
+        font-size: 1.6rem;
+    }
+
+    p {
+        font-size: 1rem;
+    }
+
+    .result-container {
+        padding: 10px;
+    }
+
+    .result-box {
+        padding: 20px;
+    }
+}
+
+/* Animations */
+@keyframes fadeIn {
+    0% {
+        opacity: 0;
+    }
+    100% {
+        opacity: 1;
+    }
+}
+
+@keyframes slideIn {
+    0% {
+        transform: translateY(-20px);
+        opacity: 0;
+    }
+    100% {
+        transform: translateY(0);
+        opacity: 1;
+    }
+}
+
+@keyframes slideInLeft {
+    0% {
+        transform: translateX(-20px);
+        opacity: 0;
+    }
+    100% {
+        transform: translateX(0);
+        opacity: 1;
+    }
+}
+
+@keyframes fadeInUp {
+    0% {
+        opacity: 0;
+        transform: translateY(20px);
+    }
+    100% {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+@keyframes fadeInText {
+    0% {
+        opacity: 0;
+    }
+    100% {
+        opacity: 1;
+    }
+}
+
+@keyframes fadeInButton {
+    0% {
+        opacity: 0;
+    }
+    100% {
+        opacity: 1;
+    }
+}
+
+@keyframes bounceIn {
+    0% {
+        transform: scale(0.8);
+        opacity: 0;
+    }
+    60% {
+        transform: scale(1.1);
+    }
+    100% {
+        transform: scale(1);
+        opacity: 1;
+    }
+}
+.submit-btn {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  padding: 10px 20px;
+  font-size: 16px;
+  font-weight: bold;
+  color: rgb(93, 0, 0);
+  background: linear-gradient(90deg, #3b9f88, #E6FFE6); /* Gradient */
+  border: none;
+  border-radius: 30px;
+  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1); /* Subtle shadow */
+  cursor: pointer;
+  transition: all 1.5s ease; /* Smooth animations */
+}
+
+.submit-btn i {
+  margin-right: 8px; /* Spacing for the icon */
+  font-size: 18px;
+}
+
+.submit-btn:hover {
+  background: linear-gradient(90deg, #E6FFE6, #3b9f88); /* Reversed gradient */ /* Lift effect */
+  box-shadow: 0 8px 12px rgba(0, 0, 0, 0.2); /* Stronger shadow */
+}
+
+.submit-btn:active {
+  transform: translateY(0); /* Reset lift on click */
+  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1); /* Reset shadow */
+}
+
+
+    </style>
+</head>
+<body>
+    <h1>Yogi predicts that...</h1>
+    <div class="result-container">
+        {% for result in results %}
+            <div class="result-box">
+                <h2>Investment Summary for {{ result.symbol }}</h2>
+                <p>Investment Amount: ₹{{ result.investment_amount }}</p>
+                <p>Predicted Price After {{ result.holding_period }} Days: ₹{{ result.predicted_sell_price }}</p>
+                <p>Final Value of Investment: ₹{{ result.final_value }}</p>
+                <p class="{% if result.profit_loss > 0 %}profit{% else %}loss{% endif %}">
+                    {% if result.profit_loss > 0 %}
+                        Profit: ₹{{ result.profit_loss }}
+                    {% else %}
+                        Loss: ₹{{ abs(result.profit_loss) }}
+                    {% endif %}
+                </p>
+                <button type="button" class="submit-btn" onclick="window.history.back();">
+                    <i class="fas fa-arrow-left"></i>   Back
+                </button>
+                
+            </div>
+        {% endfor %}
+    </div>
+</body>
+</html>

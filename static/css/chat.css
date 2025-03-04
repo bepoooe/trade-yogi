@@ -1,0 +1,184 @@
+/* Global Styling */
+body {
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    margin: 0;
+    background-color: #eaf0f2;  /* Light greyish background */
+    display: flex;
+    flex-direction: column;
+    min-height: 100vh;  /* Ensures the page spans the full height */
+    margin: 0;
+    padding: 0;
+    overflow: hidden; /* Disable global scrollbars */
+    height: 100%; /* Ensure the page height is 100% */
+}
+
+/* Header Styling */
+header {
+    background-color: #004d40;
+    padding: 15px 20px;
+    color: white;
+    display: flex;
+    justify-content: flex-start;  /* Aligns items to the left */
+    align-items: center;
+    width: 100%;
+    position: fixed;  /* Keep the header fixed at the top */
+    top: 0;
+    left: 0;
+    z-index: 1000;  /* Ensure header stays on top of the other content */
+    flex-wrap: wrap; /* Ensures the content wraps if it's too wide */
+}
+
+/* Navbar Links */
+header .brand {
+    font-size: 1.5rem;
+    font-weight: bold;
+    margin-right: 20px; /* Add space to the right of the brand */
+}
+
+header .nav-links {
+    display: flex;
+    justify-content: flex-start;  /* Align links to the left */
+    margin-left: auto; /* Add some space before the nav links */
+}
+
+header .nav-links a {
+    color: white;
+    text-decoration: none;
+    margin-left: 20px;
+    font-size: 1.1rem;
+    transition: color 0.3s ease;
+}
+
+header .nav-links a:hover {
+    color: #80cbc4;
+}
+
+.brand {
+    font-size: 24px; /* Adjust size for the brand */
+    font-weight: normal; /* Normal font weight */
+}
+
+.brand-link {
+    text-decoration: none; /* Remove underline */
+    color: inherit; /* Inherit color from the parent (or set a custom color) */
+}
+
+.brand-link:hover {
+    color: #333; /* Optional: Change color when hovering */
+}
+
+/* Chat Container */
+.chat-container {
+    margin-top: 100px; /* Adjust this value based on the navbar height */
+    width: 100%;
+    background-color: #ffffff;  /* White background */
+    padding: 20px;
+    box-shadow: 0 0 20px rgba(0, 0, 0, 0.1);
+    border-radius: 12px;
+    border: 1px solid #d1e7e2;  /* Soft light teal border */
+    display: flex;
+    flex-direction: column;
+    flex-grow: 1; /* Allows the chat container to expand and fill remaining space */
+    position: relative;
+    height: calc(100vh - 100px - 60px); /* Subtracting navbar and form height */
+}
+
+/* Heading */
+h2 {
+    text-align: center;
+    margin-bottom: 30px;
+    font-size: 1.8rem;
+    color: #165a4a;  /* Dark teal color for heading */
+}
+
+/* Chat Box */
+.chat-box {
+    max-height: 60vh;
+    overflow-y: scroll;  /* Ensure scroll is enabled */
+    margin-bottom: 20px;
+    padding: 15px;
+    background-color: #f9f9f9;  /* Light grey for messages area */
+    border-radius: 10px;
+    border: 1px solid #d1e7e2;  /* Soft teal border for the message area */
+}
+
+/* For Webkit browsers (Chrome, Safari) */
+.chat-box::-webkit-scrollbar {
+    display: none;  /* Hide the scrollbar */
+}
+
+/* Firefox */
+.chat-box {
+    scrollbar-width: none;  /* Firefox: Hide the scrollbar */
+}
+
+/* Internet Explorer / Edge */
+.chat-box {
+    -ms-overflow-style: none;  /* Hide the scrollbar in IE/Edge */
+}
+
+/* Messages */
+.user-message, .bot-message {
+    padding: 12px;
+    margin: 10px 0;
+    border-radius: 12px;
+    max-width: 70%;
+    line-height: 1.5;
+}
+
+/* User Message Styling */
+.user-message {
+    background-color: #e4f7f2;  /* Light teal background */
+    align-self: flex-start;
+    color: #165a4a;  /* Dark teal text */
+    border: 1px solid #b3dcd6;  /* Teal border */
+}
+
+/* Bot Message Styling */
+.bot-message {
+    background-color: #f0f0f0;  /* Light grey background */
+    align-self: flex-end;
+    color: #165a4a;  /* Dark teal text */
+    border: 1px solid #d1e7e2;  /* Soft teal border */
+}
+
+/* Form */
+form {
+    display: flex;
+    align-items: center;
+    margin-top: auto; /* Pushes the form to the bottom */
+    width: 100%;
+}
+
+/* Input Field */
+form input {
+    width: 80%;
+    padding: 12px;
+    font-size: 16px;
+    border: 1px solid #d1e7e2;  /* Soft teal border for input */
+    border-radius: 12px;
+    background-color: #f7f7f7;  /* Light grey background */
+    outline: none;
+    transition: border-color 0.3s;
+}
+
+form input:focus {
+    border-color: #165a4a;  /* Dark teal border on focus */
+}
+
+/* Submit Button */
+form button {
+    width: 15%;
+    padding: 12px;
+    font-size: 16px;
+    background-color: #165a4a;  /* Dark teal button */
+    color: white;
+    border: none;
+    border-radius: 12px;
+    cursor: pointer;
+    transition: background-color 0.3s;
+}
+
+form button:hover {
+    background-color: #134c40;  /* Darker teal on hover */
+}
