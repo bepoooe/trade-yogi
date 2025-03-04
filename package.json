@@ -3,6 +3,6 @@
     "bootstrap-icons": "^1.11.3"
   },
   "scripts": {
-    "start":  "gunicorn app:app"
+    "start":  "python -m gunicorn app:app"
   }
 }
