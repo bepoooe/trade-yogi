@@ -5,65 +5,52 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Stock Investment Analyzer</title>
     <link rel="stylesheet" href="{{ url_for('static', filename='css/future.css') }}">
-    <link
-    href="https://fonts.googleapis.com/css2?family=Montserrat:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&display=swap"
-    rel="stylesheet">
-    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css" rel="stylesheet">
 </head>
 <body>
     <!-- Header -->
     <header>
-        <div class="brand">Yogi Darshan</div>
+        <div class="brand">Stock Investment Analyzer</div>
         <div class="nav-links">
-            <button type="button" class="submit-btn" onclick="window.history.back();">
-                <i class="fas fa-arrow-left"></i>   Back
-            </button>
+            <a href="/index">Home</a>
+            <a href="/tradecyclopedia">Tradecyclopedia</a>
+            <a href="/contact">Contact Us</a>
+            <a href="/about">About</a>
         </div>
     </header>
 
     <!-- Main Content -->
-    <div class="parent-wrapper">
-        <div class="container">
-            <h1>Yogi will predict your Future</h1>
-    
-            <form method="POST" class="form-container">
-                <div class="form-group" style="margin-bottom: 20px;">
-                    <label for="stocks" style="font-weight: bold;">Select Company:</label>
-                    <select name="stocks" id="stocks" required style="width: 100%; padding: 10px; border: 1px solid #ccc; border-radius: 5px;">
-                        <option value="" disabled selected>Select a Company</option>
-                        {% for symbol in stock_symbols %}
-                            <option value="{{ symbol }}">{{ symbol }}</option>
-                        {% endfor %}
-                    </select>
-                </div>
-    
-                <div class="form-group" style="margin-bottom: 20px;">
-                    <label for="investment_amount" style="font-weight: bold;">Investment Amount (INR):</label>
-                    <input type="text" name="investment_amount" id="investment_amount" required placeholder="Enter Amount in INR" style="width: 100%; padding: 10px; border: 1px solid #ccc; border-radius: 5px;">
-                </div>
-    
-                <div class="form-group" style="margin-bottom: 20px;">
-                    <label for="holding_period" style="font-weight: bold;">Holding Period (Years):</label>
-                    <input type="range" name="holding_period" id="holding_period" min="0.1" max="10" step="0.1" value="1" required style="width: 100%;">
-                    <div class="slider-value" id="holding-period-value" style="margin-top: 10px;">1 year</div>
-                </div>
-    
-                <button type="submit" class="submit-btn" style="padding: 10px 20px; background-color: #28a745; color: white; border: none; border-radius: 5px; cursor: pointer;">
-                    Analyze
-                </button>
-            </form>
-        </div>
-        <div class="image-container">
-            <img src="{{ url_for('static', filename='images/Namaste.png') }}" alt="Future" class="zoomable-image">
-        </div>
+    <div class="container">
+        <h1>Stock Investment Analyzer</h1>
+
+        <form method="POST" class="form-container">
+            <div class="form-group">
+                <label for="stocks">Select Company:</label>
+                <select name="stocks" id="stocks" required>
+                    <option value="" disabled selected>Select a Company</option>
+                    {% for symbol in stock_symbols %}
+                        <option value="{{ symbol }}">{{ symbol }}</option>
+                    {% endfor %}
+                </select>
+            </div>
+
+            <div class="form-group">
+                <label for="investment_amount">Investment Amount (INR):</label>
+                <input type="text" name="investment_amount" id="investment_amount" required placeholder="Enter Amount in INR">
+            </div>
+
+            <div class="form-group">
+                <label for="holding_period">Holding Period (Years):</label>
+                <input type="range" name="holding_period" id="holding_period" min="0.1" max="10" step="0.1" value="1" required>
+                <div class="slider-value" id="holding-period-value">1 year</div>
+            </div>
+
+            <button type="submit" class="submit-btn">Analyze</button>
+        </form>
     </div>
-    
-    
-    
 
     <!-- Footer -->
     <footer>
-        © 2025 Trade Yogi | All Rights Reserved
+        © 2024 Learn & Earn | All Rights Reserved
     </footer>
 
     <script>

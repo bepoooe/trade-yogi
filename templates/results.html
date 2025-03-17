@@ -4,8 +4,6 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Stock Investment Results</title>
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
-
     <style>
         /* Global Styling */
 * {
@@ -218,42 +216,12 @@ a:hover {
         opacity: 1;
     }
 }
-.submit-btn {
-  display: inline-flex;
-  align-items: center;
-  justify-content: center;
-  padding: 10px 20px;
-  font-size: 16px;
-  font-weight: bold;
-  color: rgb(93, 0, 0);
-  background: linear-gradient(90deg, #3b9f88, #E6FFE6); /* Gradient */
-  border: none;
-  border-radius: 30px;
-  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1); /* Subtle shadow */
-  cursor: pointer;
-  transition: all 1.5s ease; /* Smooth animations */
-}
-
-.submit-btn i {
-  margin-right: 8px; /* Spacing for the icon */
-  font-size: 18px;
-}
-
-.submit-btn:hover {
-  background: linear-gradient(90deg, #E6FFE6, #3b9f88); /* Reversed gradient */ /* Lift effect */
-  box-shadow: 0 8px 12px rgba(0, 0, 0, 0.2); /* Stronger shadow */
-}
-
-.submit-btn:active {
-  transform: translateY(0); /* Reset lift on click */
-  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1); /* Reset shadow */
-}
 
 
     </style>
 </head>
 <body>
-    <h1>Yogi predicts that...</h1>
+    <h1>Stock Investment Results</h1>
     <div class="result-container">
         {% for result in results %}
             <div class="result-box">
@@ -268,10 +236,7 @@ a:hover {
                         Loss: ₹{{ abs(result.profit_loss) }}
                     {% endif %}
                 </p>
-                <button type="button" class="submit-btn" onclick="window.history.back();">
-                    <i class="fas fa-arrow-left"></i>   Back
-                </button>
-                
+                <button type="submit" class="submit-btn"><a href="/investment_results">Charts</a></button>
             </div>
         {% endfor %}
     </div>
