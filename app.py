@@ -71,9 +71,9 @@ app.secret_key = 'super-secret-key'
 def login_required(f):
     @wraps(f)
     def decorated_function(*args, **kwargs):
-        if 'user' not in session:  # If the user is not logged in
-            session['show_login_modal'] = True  # Set the modal flag
-            return redirect(url_for('index'))  # Redirect to the index page
+        if 'user' not in session:  # Check if 'user' is in session
+            flash('Please log in to access this page.', 'warning')  # Flash a message
+            return redirect(url_for('index'))  # Redirect to the index (login page)
         return f(*args, **kwargs)
     return decorated_function
 
@@ -186,21 +186,30 @@ def future():
     ]
     return render_template('future.html', stock_symbols=stock_symbols, params=params)
 
-# Stock analysis functions
 def fetch_historical_data_india(symbol, start_date, end_date):
     try:
-        stock_data = yf.download(symbol, start=start_date, end=end_date)
+        stock_data = yf.download(symbol, start=start_date, end=end_date, progress=False)
+        
         if stock_data.empty:
             print(f"Warning: No data fetched for {symbol}. Skipping this stock.")
             return None
         
-        stock_data['SMA_50'] = stock_data['Close'].rolling(window=50).mean()
-        stock_data['SMA_200'] = stock_data['Close'].rolling(window=200).mean()
+        # Moving Averages
+        stock_data['SMA_50'] = stock_data['Close'].rolling(window=50, min_periods=1).mean()
+        stock_data['SMA_200'] = stock_data['Close'].rolling(window=200, min_periods=1).mean()
+        
+        # Relative Strength Index (RSI)
         stock_data['RSI'] = calculate_rsi(stock_data['Close'], 14)
-        stock_data['Volatility'] = stock_data['Close'].rolling(window=14).std()
+        
+        # Volatility (Standard Deviation over 14-day window)
+        stock_data['Volatility'] = stock_data['Close'].rolling(window=14, min_periods=1).std()
+        
+        # Target (Next Day Close Price)
         stock_data['Target'] = stock_data['Close'].shift(-1)
-        stock_data = stock_data.dropna()
+        
+        stock_data.dropna(inplace=True)  # Drop NaN values after calculations
         return stock_data
+    
     except Exception as e:
         print(f"Error fetching data for {symbol}: {e}")
         return None
@@ -270,4 +279,4 @@ def run_analysis(selected_companies, investment_amount, holding_period, start_da
     return results
 
 if __name__ == "__main__":
-    app.run(debug=True, use_reloader=True)
+    app.run(debug=True)  
