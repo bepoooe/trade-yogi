@@ -236,8 +236,9 @@ a:hover {
                         Loss: ₹{{ abs(result.profit_loss) }}
                     {% endif %}
                 </p>
-                <button type="submit" class="submit-btn"><a href="/investment_results">Charts</a></button>
-            </div>
+                <button type="button" class="submit-btn" onclick="window.history.back();">
+                    <i class="fas fa-arrow-left"></i>   Back
+                </button>            </div>
         {% endfor %}
     </div>
 </body>
